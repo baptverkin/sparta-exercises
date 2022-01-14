@@ -17,17 +17,18 @@ let student = {
   timeSpent: "4 days",
 };
 
-
 let developer = {
-  // code here
+  ...student,
+  ...knowledge,
 };
 
-
+console.log(developer);
 
 let application = ["bug", "code", "code", "code", "code", "code", "code", "code", "code"];
+const [bug, ...code] = ["bug", "code", "code", "code", "code", "code", "code", "code", "code"];
 
-
-// code here
+console.log(bug);
+console.log(code);
 
 
 module.exports = {

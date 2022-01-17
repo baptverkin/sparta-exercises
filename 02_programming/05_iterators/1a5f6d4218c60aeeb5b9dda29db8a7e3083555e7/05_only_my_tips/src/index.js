@@ -1,7 +1,13 @@
-function onlyMyTips(invoices) {
+/*function onlyMyTips(invoices) {
   const iAmTheWaiter = invoices.filter(invoices => invoices.waiter === "Yourself");
   const tips = iAmTheWaiter.map(tips => tips.tip);
   return tips;
+}*/
+
+function onlyMyTips(invoices) {
+  return invoices
+    .filter(invoices => invoices.waiter === "Yourself")
+    .map(tips => tips.tip);
 }
 
 const todaysInvoices = [
@@ -17,3 +23,5 @@ console.log(result);
 
 // Do not remove the following line, it is for tests
 module.exports = onlyMyTips;
+
+

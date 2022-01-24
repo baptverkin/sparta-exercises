@@ -15,7 +15,6 @@ function daysSinceDate (date){
   const stringOfYears = moment(date).fromNow();
   const trimString = stringOfYears.substring(0,2);
   const makeNumber = (Number(trimString)*365)+41;
-  //console.log(makeNumber);
   return makeNumber;
 }
 

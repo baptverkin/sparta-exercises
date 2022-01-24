@@ -5,7 +5,7 @@ const reader = readline.createInterface({
   output: process.stdout,
 });
 
-const shiFuMiOptions =
+const shiFuMiPlayerOptions =
 [[
   "    ________        ",
   "---'   _ ,  |       ",
@@ -33,98 +33,148 @@ const shiFuMiOptions =
 
 
 function ShiFuMi(reader, min = 1, max = 3) {
-  console.log("Welcome to ShiFuMi 👊✋🖖");
+  console.log("--------------------");
+  console.log("Welcome to ShiFuMi");
+  console.log("      👊✋🖖");
+  console.log(" Ose défier l'IA");
+  console.log("--------------------");
 
   let playerScore = 0;
   let computerScore = 0;
 
-  reader.question("Choose a move\nRock Paper Scissors? [1, 2, 3]\n>", move);
-
+  reader.question("Choisi ton arme\nPierre = [1], Papier = [2] ou Ciseaux = [3]\n>", move);
   function move (number){
     const randomNumber = Math.round(Math.random() * (max - min)) + min;
     const makeNumberANumber = Number(number);
 
-    const gagné = "Chanceux ou malin - En tout cas bravo, GAGNE 🥳";
-    const perdu = "La feuille enveloppe le papier Amonbofis - PERDU 😞";
+    const gagné = "Chanceux ou malin ? En tout cas bravo, c'est GAGNE 🥳";
+    const perdu = "La feuille enveloppe le papier - PERDU Amonbofis 😞";
 
-    console.log(playerScore);
-    console.log(computerScore);
-
-    if(computerScore < 3 && playerScore < 3){
-      if (Number.isInteger(makeNumberANumber) !== true || makeNumberANumber<min || makeNumberANumber>max){
-        console.log ("J'ai demandé 1,2 ou 3 ! RTFConsignes");
-        return reader.question("Choose a move\nRock Paper Scissors? [1, 2, 3]\n>", (move));
-      }else{
-        if (makeNumberANumber === 1 && randomNumber === 1){
-          console.log("Player move :\n");
-          console.log(shiFuMiOptions[makeNumberANumber-1]);
-          console.log("Computer move :\n" );
-          console.log(shiFuMiOptions[randomNumber-1]);
-          return reader.question("Choose a move\nRock Paper Scissors? [1, 2, 3]\n>", move);
-        }else if (makeNumberANumber === 1 && randomNumber === 2){
-          console.log("Player move :\n");
-          console.log(shiFuMiOptions[makeNumberANumber-1]);
-          console.log("Computer move :\n" );
-          console.log(shiFuMiOptions[randomNumber-1]);
-          computerScore++;
-          return reader.question("Choose a move\nRock Paper Scissors? [1, 2, 3]\n>", move);
-        }else if (makeNumberANumber === 1 && randomNumber === 3){
-          console.log("Player move :\n");
-          console.log(shiFuMiOptions[makeNumberANumber-1]);
-          console.log("Computer move :\n" );
-          console.log(shiFuMiOptions[randomNumber-1]);
-          playerScore++;
-          return reader.question("Choose a move\nRock Paper Scissors? [1, 2, 3]\n>", move);
-
-
-        } else if (makeNumberANumber === 2 && randomNumber === 2){
-          console.log("Player move :\n");
-          console.log(shiFuMiOptions[makeNumberANumber-1]);
-          console.log("Computer move :\n" );
-          console.log(shiFuMiOptions[randomNumber-1]);
-          return reader.question("Choose a move\nRock Paper Scissors? [1, 2, 3]\n>", move);
-        } else if (makeNumberANumber === 2 && randomNumber === 3){
-          console.log("Player move :\n");
-          console.log(shiFuMiOptions[makeNumberANumber-1]);
-          console.log("Computer move :\n" );
-          console.log(shiFuMiOptions[randomNumber-1]);
-          computerScore++;
-          return reader.question("Choose a move\nRock Paper Scissors? [1, 2, 3]\n>", move);
-        } else if (makeNumberANumber === 2 && randomNumber === 1){
-          console.log("Player move :\n");
-          console.log(shiFuMiOptions[makeNumberANumber-1]);
-          console.log("Computer move :\n" );
-          console.log(shiFuMiOptions[randomNumber-1]);
-          playerScore++;
-          return reader.question("Choose a move\nRock Paper Scissors? [1, 2, 3]\n>", move);
+    if (Number.isInteger(makeNumberANumber) !== true || makeNumberANumber<min || makeNumberANumber>max){
+      console.log ("J'ai demandé 1,2 ou 3 ! RTFConsignes");
+      return reader.question("Choisi ton arme\nPierre = [1], Papier = [2] ou Ciseaux = [3]\n>", move);
+    }else{
+      if (makeNumberANumber === 1 && randomNumber === 1){
+        console.log("Player move :\n");
+        console.log(shiFuMiPlayerOptions[makeNumberANumber-1]);
+        console.log("Computer move :\n" );
+        console.log(shiFuMiPlayerOptions[randomNumber-1]);
+        console.log(`[Score] Player : ${playerScore} --- Computer : ${computerScore}`);
+        return reader.question("Choisi ton arme\nPierre = [1], Papier = [2] ou Ciseaux = [3]\n>", move);
+      }else if (makeNumberANumber === 1 && randomNumber === 2){
+        console.log("Player move :\n");
+        console.log(shiFuMiPlayerOptions[makeNumberANumber-1]);
+        console.log("Computer move :\n" );
+        console.log(shiFuMiPlayerOptions[randomNumber-1]);
+        computerScore++;
+        if(computerScore < 3 && playerScore < 3){
+          console.log(`[Score] Player : ${playerScore} --- Computer : ${computerScore}`);
+          return reader.question("Choisi ton arme\nPierre = [1], Papier = [2] ou Ciseaux = [3]\n>", move);
+        }else if (computerScore === 3){
+          console.log(`[Score] Player : ${playerScore} --- Computer : ${computerScore}`);
+          console.log(perdu);
+        }else if (playerScore === 3){
+          console.log(`[Score] Player : ${playerScore} --- Computer : ${computerScore}`);
+          console.log(gagné);
+        };
+      }else if (makeNumberANumber === 1 && randomNumber === 3){
+        console.log("Player move :\n");
+        console.log(shiFuMiPlayerOptions[makeNumberANumber-1]);
+        console.log("Computer move :\n" );
+        console.log(shiFuMiPlayerOptions[randomNumber-1]);
+        playerScore++;
+        if(computerScore < 3 && playerScore < 3){
+          console.log(`[Score] Player : ${playerScore} --- Computer : ${computerScore}`);
+          return reader.question("Choisi ton arme\nPierre = [1], Papier = [2] ou Ciseaux = [3]\n>", move);
+        }else if (computerScore === 3){
+          console.log(`[Score] Player : ${playerScore} --- Computer : ${computerScore}`);
+          console.log(perdu);
+        }else if (playerScore === 3){
+          console.log(`[Score] Player : ${playerScore} --- Computer : ${computerScore}`);
+          console.log(gagné);
+        };
 
 
-        } else if (makeNumberANumber === 3 && randomNumber === 3){
-          console.log("Player move :\n");
-          console.log(shiFuMiOptions[makeNumberANumber-1]);
-          console.log("Computer move :\n" );
-          console.log(shiFuMiOptions[randomNumber-1]);
-          return reader.question("Choose a move\nRock Paper Scissors? [1, 2, 3]\n>", move);
-        }else if (makeNumberANumber === 3 && randomNumber === 1){
-          console.log("Player move :\n");
-          console.log(shiFuMiOptions[makeNumberANumber-1]);
-          console.log("Computer move :\n" );
-          console.log(shiFuMiOptions[randomNumber-1]);
-          computerScore++;
-          return reader.question("Choose a move\nRock Paper Scissors? [1, 2, 3]\n>", move);
-        }else if (makeNumberANumber === 3 && randomNumber === 2){
-          console.log("Player move :\n");
-          console.log(shiFuMiOptions[makeNumberANumber-1]);
-          console.log("Computer move :\n" );
-          console.log(shiFuMiOptions[randomNumber-1]);
-          playerScore++;
-          return reader.question("Choose a move\nRock Paper Scissors? [1, 2, 3]\n>", move);
-        }
+      } else if (makeNumberANumber === 2 && randomNumber === 2){
+        console.log("Player move :\n");
+        console.log(shiFuMiPlayerOptions[makeNumberANumber-1]);
+        console.log("Computer move :\n" );
+        console.log(shiFuMiPlayerOptions[randomNumber-1]);
+        console.log(`[Score] Player : ${playerScore} --- Computer : ${computerScore}`);
+        return reader.question("Choisi ton arme\nPierre = [1], Papier = [2] ou Ciseaux = [3]\n>", move);
+      } else if (makeNumberANumber === 2 && randomNumber === 3){
+        console.log("Player move :\n");
+        console.log(shiFuMiPlayerOptions[makeNumberANumber-1]);
+        console.log("Computer move :\n" );
+        console.log(shiFuMiPlayerOptions[randomNumber-1]);
+        computerScore++;
+        if(computerScore < 3 && playerScore < 3){
+          console.log(`[Score] Player : ${playerScore} --- Computer : ${computerScore}`);
+          return reader.question("Choisi ton arme\nPierre = [1], Papier = [2] ou Ciseaux = [3]\n>", move);
+        }else if (computerScore === 3){
+          console.log(`[Score] Player : ${playerScore} --- Computer : ${computerScore}`);
+          console.log(perdu);
+        }else if (playerScore === 3){
+          console.log(`[Score] Player : ${playerScore} --- Computer : ${computerScore}`);
+          console.log(gagné);
+        };
+      } else if (makeNumberANumber === 2 && randomNumber === 1){
+        console.log("Player move :\n");
+        console.log(shiFuMiPlayerOptions[makeNumberANumber-1]);
+        console.log("Computer move :\n" );
+        console.log(shiFuMiPlayerOptions[randomNumber-1]);
+        playerScore++;
+        if(computerScore < 3 && playerScore < 3){
+          console.log(`[Score] Player : ${playerScore} --- Computer : ${computerScore}`);
+          return reader.question("Choisi ton arme\nPierre = [1], Papier = [2] ou Ciseaux = [3]\n>", move);
+        }else if (computerScore === 3){
+          console.log(`[Score] Player : ${playerScore} --- Computer : ${computerScore}`);
+          console.log(perdu);
+        }else if (playerScore === 3){
+          console.log(`[Score] Player : ${playerScore} --- Computer : ${computerScore}`);
+          console.log(gagné);
+        };
+
+      } else if (makeNumberANumber === 3 && randomNumber === 3){
+        console.log("Player move :\n");
+        console.log(shiFuMiPlayerOptions[makeNumberANumber-1]);
+        console.log("Computer move :\n" );
+        console.log(shiFuMiPlayerOptions[randomNumber-1]);
+        console.log(`[Score] Player : ${playerScore} --- Computer : ${computerScore}`);
+        return reader.question("Choisi ton arme\nPierre = [1], Papier = [2] ou Ciseaux = [3]\n>", move);
+      }else if (makeNumberANumber === 3 && randomNumber === 1){
+        console.log("Player move :\n");
+        console.log(shiFuMiPlayerOptions[makeNumberANumber-1]);
+        console.log("Computer move :\n" );
+        console.log(shiFuMiPlayerOptions[randomNumber-1]);
+        computerScore++;
+        if(computerScore < 3 && playerScore < 3){
+          console.log(`[Score] Player : ${playerScore} --- Computer : ${computerScore}`);
+          return reader.question("Choisi ton arme\nPierre = [1], Papier = [2] ou Ciseaux = [3]\n>", move);
+        }else if (computerScore === 3){
+          console.log(`[Score] Player : ${playerScore} --- Computer : ${computerScore}`);
+          console.log(perdu);
+        }else if (playerScore === 3){
+          console.log(`[Score] Player : ${playerScore} --- Computer : ${computerScore}`);
+          console.log(gagné);
+        };
+      }else if (makeNumberANumber === 3 && randomNumber === 2){
+        console.log("Player move :\n");
+        console.log(shiFuMiPlayerOptions[makeNumberANumber-1]);
+        console.log("Computer move :\n" );
+        console.log(shiFuMiPlayerOptions[randomNumber-1]);
+        playerScore++;
+        if(computerScore < 3 && playerScore < 3){
+          console.log(`[Score] Player : ${playerScore} --- Computer : ${computerScore}`);
+          return reader.question("Choisi ton arme\nPierre = [1], Papier = [2] ou Ciseaux = [3]\n>", move);
+        }else if (computerScore === 3){
+          console.log(`[Score] Player : ${playerScore} --- Computer : ${computerScore}`);
+          console.log(perdu);
+        }else if (playerScore === 3){
+          console.log(`[Score] Player : ${playerScore} --- Computer : ${computerScore}`);
+          console.log(gagné);
+        };
       }
-    }else if(computerScore === 3){
-      console.log(perdu);
-    }else if(playerScore === 3){
-      console.log(gagné);
     }
     reader.close ();
   }

@@ -11,8 +11,6 @@ function showAccount (reader, customer, listOfCustomers, index){
   console.log (` - City:          ${customer.City}`);
   console.log (` - Country:       ${customer.Country}`);
 
-  // listOfCustomers.map(key => `${key.Country}`).forEach((person) => console.log(` - Country:         ${person}`));
-
   reader.question("\nTo return to previous screen, press any key\n", (option) => {
     accessCustomerData(reader, listOfCustomers);
   })

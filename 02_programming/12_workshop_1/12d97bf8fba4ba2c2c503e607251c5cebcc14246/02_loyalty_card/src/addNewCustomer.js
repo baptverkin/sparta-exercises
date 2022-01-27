@@ -8,6 +8,7 @@ function addNewCustomer(reader, listOfCustomers){
   let customer = {};
   const id = uuid.v4();
   customer.Id = id;
+  customer.PurchaseHistory = [];
   reader.question ("🤖 - first name:\n", (firstName) => {
     customer.Firstname = firstName;
     reader.question ("🤖 - last name:\n", (lastName) => {

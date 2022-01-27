@@ -10,7 +10,6 @@ const reader = readline.createInterface({
 
 let listOfCustomers = [];
 
-
 function start(){
   const welcomeAction = ["1 - Add new customer", "2 - Access customer data", "3 - Quit"];
   console.log(`${welcomeAction[0]}\n${welcomeAction[1]}\n${welcomeAction[2]}\n`);

@@ -107,7 +107,7 @@ It's way better to inform the user that an error occurred and let her or him try
 ```js
 Waiting for first number
 > a
-Wrong input!
+"Wrong input!"
 Waiting for first number
 > 123
 Choose an operation: [ + - * / ]

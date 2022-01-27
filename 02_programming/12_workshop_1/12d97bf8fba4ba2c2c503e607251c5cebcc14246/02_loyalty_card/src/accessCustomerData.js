@@ -4,7 +4,7 @@
 function accessCustomerData(reader, listOfCustomers){
   console.log("****************************\nCHOOSE A CUSTOMER\n****************************\n");
   let cleanListOfCustomers = listOfCustomers.map(key => `${key.Firstname} ${key.Lastname}`).forEach((person, index) => console.log(`${index + 1} - ${person}`));;
-  reader.question ("🤖 Choose an action\n", (action) => {
+  reader.question ("\n🤖 Choose an action\n", (action) => {
     customerDetails(reader, action, listOfCustomers);
   });
 }

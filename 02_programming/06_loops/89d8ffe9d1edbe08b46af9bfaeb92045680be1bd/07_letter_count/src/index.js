@@ -1,7 +1,10 @@
 function letterCount(stringToTest, characterToTest) {
   return stringToTest.split(characterToTest).length-1;
 }
-letterCount("gattaca", "z");
+
+const count = letterCount("gattaca", "a");
+
 
 // Do not remove the following line, it is for tests
 module.exports = letterCount;
+

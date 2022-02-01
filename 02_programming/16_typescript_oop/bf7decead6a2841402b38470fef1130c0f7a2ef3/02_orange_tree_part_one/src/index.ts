@@ -20,7 +20,6 @@ class Tree {
     }
   }
 
-
   seed (age: number, height: number, alive: boolean): void  {
     this.age = 0;
     this.height = 0;

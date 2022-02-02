@@ -11,7 +11,6 @@ const myProduct: Product = {
 function productTransformer (object: Product): [string, string | number ][] {
   console.log(Object.entries(object));
   return Object.entries(object)
-  // console.log(Object.keys(object).map((key) => [Number(key), object[key]]))
 }
 
 productTransformer(myProduct);

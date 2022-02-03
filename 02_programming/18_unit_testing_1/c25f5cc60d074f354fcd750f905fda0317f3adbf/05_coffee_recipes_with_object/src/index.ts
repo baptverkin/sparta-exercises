@@ -1,3 +1,8 @@
+type MyObject = {
+  name: string,
+  ingredients: string[],
+};
+
 export const recipeMaker = {
   coffeeRecipes: [{
     name: "espresso",
@@ -19,6 +24,7 @@ export const recipeMaker = {
     name: "americano",
     ingredients: ["espresso", "water"],
   }],
+
   giveRecipe: function giveRecipe(coffeeName: string): string {
     if (coffeeName === "LATTE") {
       return `Sorry, ${coffeeName} does not exist on our list.`
@@ -27,15 +33,13 @@ export const recipeMaker = {
     }else if (coffeeName === "cola") {
       return `Sorry, ${coffeeName} does not exist on our list.`
     }else{
-      let sentenceReturn = ""
-      this.coffeeRecipes.forEach(element => {
+      let sentenceReturn = "";
+      this.coffeeRecipes.forEach((element: MyObject):void => {
         if (element.name === coffeeName){
           sentenceReturn = `${element.name} ingredients:\n- ${element.ingredients.join(",\n- ")}`
         }
       });
       return sentenceReturn;
-    // for (let i=0; i<=coffeeRecipes.length; i++){
-    //   return `${coffeeName} ingredients:\n- ${coffeeRecipes[i].ingredients.join(",\n- ")}`;
         }
     }
 };

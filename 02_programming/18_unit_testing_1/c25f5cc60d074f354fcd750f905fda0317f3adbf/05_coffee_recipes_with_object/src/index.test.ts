@@ -30,14 +30,14 @@ const expectedCoffeeRecipes: CoffeeRecipe[] = [
 
 describe("#recipeMaker", () => {
   describe("#coffeeRecipes", () => {
-    test("", () => {
+    test("check ocject is ok", () => {
       expect.assertions(1);
       expect(expectedCoffeeRecipes).toEqual(recipeMaker.coffeeRecipes);
     });
   });
 
   describe("#giveRecipe", () => {
-    test("", () => {
+    test("Check that give recipe is a funtcion that returns only one element", () => {
       expect.assertions(2);
       expect(typeof recipeMaker.giveRecipe).toEqual("function");
       expect(recipeMaker.giveRecipe.length).toEqual(1);

@@ -5,7 +5,7 @@
 function sortingMachine (revenue: number[], order: boolean): number[]{
   if (order === true){
     return revenue.sort(function(a, b){return a-b});
-  }else if(order ===false){
+  }else{
     return revenue.sort(function(a, b){return b-a});
   }
 }

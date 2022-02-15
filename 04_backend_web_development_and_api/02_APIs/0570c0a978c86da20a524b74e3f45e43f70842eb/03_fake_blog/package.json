@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "api": "json-server --watch db.json --port 3491",
-    "test": "eslint --ext .js,.ts . && sparta test"
+    "test": "eslint --ext .js,.ts . && sparta test",
+    "start": "ts-node src/update-post.ts"
   },
   "devDependencies": {
     "@types/jest": "26.0.10",

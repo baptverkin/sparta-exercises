@@ -9,7 +9,7 @@
   },
   "devDependencies": {
     "@types/jest": "26.0.10",
-    "@types/node-fetch": "^2.5.7",
+    "@types/node-fetch": "^2.6.1",
     "@typescript-eslint/eslint-plugin": "3.10.1",
     "@typescript-eslint/parser": "3.10.1",
     "camp2-helpers": "fewlines-education/camp2-helpers#main",
@@ -19,7 +19,7 @@
     "fetch-mock-jest": "^1.2.8",
     "fwl-readline": "fewlines-education/fwl-readline#master",
     "jest": "26.4.2",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "2",
     "readline": "^1.3.0",
     "ts-jest": "26.3.0",
     "ts-node": "9.0.0",

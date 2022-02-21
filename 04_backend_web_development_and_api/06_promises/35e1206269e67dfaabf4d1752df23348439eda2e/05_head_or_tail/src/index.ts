@@ -1,4 +1,5 @@
 import { headOrTail } from "./head-or-tail";
+import { getRandomFace } from "./random-face";
 
 headOrTail("head")
   .then(() => {
@@ -7,3 +8,5 @@ headOrTail("head")
   .catch(() => {
     console.log("Oh no.");
   });
+
+console.log(getRandomFace());

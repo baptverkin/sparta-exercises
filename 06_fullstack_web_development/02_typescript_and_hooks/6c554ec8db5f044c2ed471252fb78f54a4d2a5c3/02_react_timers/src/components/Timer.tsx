@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 
 type TimerProps = {
   timerId: string;
-  removeTimer: string;
+  removeTimer: (createdAt: string) => void;
 };
 
 export const Timer: React.FC<TimerProps> = ({ timerId, removeTimer }) => {
